@@ -3,7 +3,7 @@ module.exports = {
 		UseMultipleProcessingCores: true,
 		MaxProcessingCores: 0, // set to 0 for all cores
 		HttpPort: 80, // set to null to disable
-		HttpsPort: 443, // set to null to disable
+		HttpsPort: null, // set to null to disable
 		HttpsOptions: {
 			key: "./privkey.pem",
 			cert: "./fullchain.pem"
