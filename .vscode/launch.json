@@ -1,0 +1,41 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Launch",
+			"type": "node",
+			"protocol": "inspector",
+			"request": "launch",
+			"program": "${workspaceRoot}/app.js",
+			"stopOnEntry": false,
+			"args": [],
+			"cwd": "${workspaceRoot}",
+			"preLaunchTask": null,
+			"runtimeExecutable": null,
+			"runtimeArgs": [
+				"--nolazy"
+			],
+			"env": {
+				"NODE_ENV": "development"
+			},
+			"console": "integratedTerminal",
+			"sourceMaps": false,
+			"smartStep": true
+		},
+		{
+			"name": "Attach",
+			"type": "node",
+			"request": "attach",
+			"port": 5858,
+			"address": "localhost",
+			"restart": false,
+			"sourceMaps": false,
+			"localRoot": "${workspaceRoot}",
+			"remoteRoot": null,
+			"skipFiles": [
+				"${workspaceRoot}/node_modules/**/*.js",
+				"<node_internals>/**/*.js"
+			]
+		}
+	]
+}

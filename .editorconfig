@@ -1,0 +1,15 @@
+# http://editorconfig.org/
+
+# top-most EditorConfig file
+root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+quote_type = double
+curly_bracket_next_line = false
+spaces_around_brackets = true
+charset = utf-8
+indent_style = tab
+indent_size = 4

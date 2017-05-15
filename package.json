@@ -1,0 +1,23 @@
+{
+  "name": "maintenance",
+  "version": "0.1.0",
+  "description": "A maintenance site",
+  "author": "Compilenix <Compilenix@compilenix.org>",
+  "main": "app.js",
+  "scripts": {
+    "start": "npm install && node app.js"
+  },
+  "dependencies": {
+    "fs-extra": "^3.0.1",
+    "html-minifier": ">=3.4.4",
+    "http2": "*",
+    "mustache": ">=2.3.0",
+    "use-strict": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.compilenix.org/Compilenix/http-503.git"
+  },
+  "bugs": "https://git.compilenix.org/Compilenix/http-503/issues",
+  "license": "MIT"
+}

@@ -1,0 +1,18 @@
+{
+	"esversion": 6,
+	"undef": true,
+	"unused": true,
+	"node": true,
+	"curly": true,
+	"eqeqeq": true,
+	"eqnull": true,
+	"globals": {},
+	"futurehostile": true,
+	"latedef": true,
+	"loopfunc": false,
+	"maxcomplexity": 20,
+	"maxparams": 4,
+	"nonew": true,
+	"supernew": false,
+	"varstmt": true
+}
