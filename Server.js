@@ -39,6 +39,8 @@ class Server {
 		}
 
 		if (config.Server.HttpsPort != null) {
+			config.Server.HttpsOptions.cert = fs.readFileSync(config.Server.HttpsOptions.cert);
+			config.Server.HttpsOptions.key = fs.readFileSync(config.Server.HttpsOptions.key);
 			http2.createServer(config.Server.HttpsOptions, Server.onRequest).listen(config.Server.HttpsPort);
 		}
 	}

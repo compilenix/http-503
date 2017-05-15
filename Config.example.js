@@ -1,5 +1,3 @@
-const fs = require("fs");
-
 module.exports = {
 	Server: {
 		UseMultipleProcessingCores: true,
@@ -7,8 +5,8 @@ module.exports = {
 		HttpPort: 80, // set to null to disable
 		HttpsPort: 443, // set to null to disable
 		HttpsOptions: {
-			key: fs.readFileSync("./privkey.pem"),
-			cert: fs.readFileSync("./fullchain.pem")
+			key: "./privkey.pem",
+			cert: "./fullchain.pem"
 		},
 		KeepAlive: false,
 		KeepAliveOn3xx: true,
