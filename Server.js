@@ -125,7 +125,7 @@ class Server {
 				}
 			} else if (request.headers["accept-encoding"].match(/\bdeflate\b/)) { // if accepting deflate
 				if (element.content_deflate && element.content_deflate_length > 0) { // if has deflate
-					response.setHeader("Vary", "accept-encoding");
+					response.setHeader("Vary", "Accept-Encoding");
 					response.setHeader("Content-Encoding", "deflate");
 					response.setHeader("Content-Length", element.content_deflate_length);
 					data = element.content_deflate;

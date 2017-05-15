@@ -1,0 +1,195 @@
+{
+	"variables": [],
+	"info": {
+		"name": "http-503",
+		"_postman_id": "0d66be17-a3bb-9872-f091-40e2077d1828",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost/ gzip",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 503;",
+							"tests[\"Body matches string\"] = responseBody.has(\"<title>Maintenance</title>\");",
+							"tests[\"Content-Type is text/html\"] = postman.getResponseHeader(\"Content-Type\") === \"text/html\";",
+							"tests[\"Content-Encoding is gzip\"] = postman.getResponseHeader(\"Content-Encoding\") === \"gzip\";",
+							"tests[\"Content-Length is 1196\"] = postman.getResponseHeader(\"Content-Length\") == 1196;",
+							"tests[\"Connection is Close\"] = postman.getResponseHeader(\"Connection\") === \"Close\";",
+							"tests[\"Vary is Accept-Encoding\"] = postman.getResponseHeader(\"Vary\") === \"Accept-Encoding\";",
+							"tests[\"X-Content-Type-Options is nosniff\"] = postman.getResponseHeader(\"X-Content-Type-Options\") === \"nosniff\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/ deflate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 503;",
+							"tests[\"Body matches string\"] = responseBody.has(\"<title>Maintenance</title>\");",
+							"tests[\"Content-Type is text/html\"] = postman.getResponseHeader(\"Content-Type\") === \"text/html\";",
+							"tests[\"Content-Encoding is gzip\"] = postman.getResponseHeader(\"Content-Encoding\") === \"deflate\";",
+							"tests[\"Content-Length is 1196\"] = postman.getResponseHeader(\"Content-Length\") == 1184;",
+							"tests[\"Connection is Close\"] = postman.getResponseHeader(\"Connection\") === \"Close\";",
+							"tests[\"Vary is Accept-Encoding\"] = postman.getResponseHeader(\"Vary\") === \"Accept-Encoding\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Encoding",
+						"value": "deflate",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/ no compression",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 503;",
+							"tests[\"Body matches string\"] = responseBody.has(\"<title>Maintenance</title>\");",
+							"tests[\"Content-Type is text/html\"] = postman.getResponseHeader(\"Content-Type\") === \"text/html\";",
+							"tests[\"Content-Encoding is not present\"] = postman.getResponseHeader(\"Content-Encoding\") === undefined;",
+							"tests[\"Content-Length is 6264\"] = postman.getResponseHeader(\"Content-Length\") == 6264;",
+							"tests[\"Connection is Close\"] = postman.getResponseHeader(\"Connection\") === \"Close\";",
+							"tests[\"Vary is not present\"] = postman.getResponseHeader(\"Vary\") === undefined;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Encoding",
+						"value": "",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/asdasd",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 307;",
+							"tests[\"Body matches string\"] = responseBody.has(\"<title>307 Temporary Redirect</title>\");",
+							"tests[\"Content-Type is text/html\"] = postman.getResponseHeader(\"Content-Type\") === \"text/html\";",
+							"tests[\"Content-Encoding is gzip\"] = postman.getResponseHeader(\"Content-Encoding\") === \"gzip\";",
+							"tests[\"Content-Length is 136\"] = postman.getResponseHeader(\"Content-Length\") == 136;",
+							"tests[\"Connection is Keep-Alive\"] = postman.getResponseHeader(\"Connection\") === \"Keep-Alive\";",
+							"tests[\"Vary is Accept-Encoding\"] = postman.getResponseHeader(\"Vary\") === \"Accept-Encoding\";",
+							"tests[\"Location is /\"] = postman.getResponseHeader(\"Location\") === \"/\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost/asdasd",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/robots.txt",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 307;",
+							"tests[\"Body matches string\"] = responseBody.has(\"<title>307 Temporary Redirect</title>\");",
+							"tests[\"Content-Type is text/html\"] = postman.getResponseHeader(\"Content-Type\") === \"text/html\";",
+							"tests[\"Content-Encoding is gzip\"] = postman.getResponseHeader(\"Content-Encoding\") === \"gzip\";",
+							"tests[\"Content-Length is 136\"] = postman.getResponseHeader(\"Content-Length\") == 136;",
+							"tests[\"Connection is Keep-Alive\"] = postman.getResponseHeader(\"Connection\") === \"Keep-Alive\";",
+							"tests[\"Vary is Accept-Encoding\"] = postman.getResponseHeader(\"Vary\") === \"Accept-Encoding\";",
+							"tests[\"Location is /\"] = postman.getResponseHeader(\"Location\") === \"/\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost/robots.txt",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/favicon.ico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 307;",
+							"tests[\"Body matches string\"] = responseBody.has(\"<title>307 Temporary Redirect</title>\");",
+							"tests[\"Content-Type is text/html\"] = postman.getResponseHeader(\"Content-Type\") === \"text/html\";",
+							"tests[\"Content-Encoding is gzip\"] = postman.getResponseHeader(\"Content-Encoding\") === \"gzip\";",
+							"tests[\"Content-Length is 136\"] = postman.getResponseHeader(\"Content-Length\") == 136;",
+							"tests[\"Connection is Keep-Alive\"] = postman.getResponseHeader(\"Connection\") === \"Keep-Alive\";",
+							"tests[\"Vary is Accept-Encoding\"] = postman.getResponseHeader(\"Vary\") === \"Accept-Encoding\";",
+							"tests[\"Location is /\"] = postman.getResponseHeader(\"Location\") === \"/\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost/favicon.ico",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
