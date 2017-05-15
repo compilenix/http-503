@@ -28,7 +28,7 @@ module.exports = {
 				]
 			},
 			{
-				Code: 500,
+				Code: 503,
 				Headers: [
 					{ Key: "Retry-After", Value: 120 } // seconds or http-date. see also: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After
 				]
