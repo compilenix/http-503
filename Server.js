@@ -30,8 +30,17 @@ if (fileExists("./favicon.ico", fs.constants.R_OK)) {
 
 class Server {
 	start() {
-		http.createServer(Server.onRequest).listen(config.Server.HttpPort);
-		http2.createServer(config.Server.HttpsOptions, Server.onRequest).listen(config.Server.HttpsPort);
+		if (config.Server.HttpPort === null && config.Server.HttpsPort === null) {
+			process.exit(1);
+		}
+
+		if (config.Server.HttpPort != null) {
+			http.createServer(Server.onRequest).listen(config.Server.HttpPort);
+		}
+
+		if (config.Server.HttpsPort != null) {
+			http2.createServer(config.Server.HttpsOptions, Server.onRequest).listen(config.Server.HttpsPort);
+		}
 	}
 
 	static onRequest(request, response) {
