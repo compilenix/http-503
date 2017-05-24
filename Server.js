@@ -10,7 +10,7 @@ let config = require("./Config.js");
 const cache = [{
 	path: "",
 	content: fs.readFileSync(config.Site.FilePath, "utf8"),
-	content_type: "text/html",
+	content_type: "text/html; charset=utf-8",
 	status_code: 503,
 	length: 0,
 	content_gzip: null,
@@ -55,7 +55,7 @@ class Server {
 			Server.sendResponse(request, response, {
 				status_code: 307,
 				content: "<html><head><title>307 Temporary Redirect</title><meta charset=\"UTF-8\"></head><body bgcolor=\"white\"><center><h1>307 Temporary Redirect</h1></center><hr></body></html>",
-				content_type: "text/html"
+				content_type: "text/html; charset=utf-8"
 			});
 			return;
 		}
@@ -157,7 +157,7 @@ class Server {
 	}
 
 	static updateElementContent(element) {
-		if (config.Site.MinifyHtml && element.content_type.toLowerCase() === "text/html") {
+		if (config.Site.MinifyHtml && element.content_type.toLowerCase().startsWith("text/html")) {
 			element.content = minify(element.content, {
 				minifyCSS: true,
 				minifyJS: true,
