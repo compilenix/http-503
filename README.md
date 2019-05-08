@@ -1,4 +1,7 @@
 # http-503
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/compilenix/http-503.svg)](https://greenkeeper.io/)
+
 A maintenance site
 
 have a look at Config.js (copy from Config.example.js) and maintenance.html
